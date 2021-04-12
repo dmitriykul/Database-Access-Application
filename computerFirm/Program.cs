@@ -16,7 +16,8 @@ namespace computerFirm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new ReportForms.LoginForm());
+            //Application.Run(new MainForm());
             // Application.Run(new WorkersForm());
             //Application.Run(new TestReport());
         }

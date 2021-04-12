@@ -74,245 +74,270 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDoneService.cs">
+    <Compile Include="AddForms\AddDoneService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDoneService.Designer.cs">
+    <Compile Include="AddForms\AddDoneService.Designer.cs">
       <DependentUpon>AddDoneService.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewClientForm.cs">
+    <Compile Include="AddForms\AddNewClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewClientForm.Designer.cs">
+    <Compile Include="AddForms\AddNewClientForm.Designer.cs">
       <DependentUpon>AddNewClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewDoneOrderForm.cs">
+    <Compile Include="AddForms\AddNewDoneOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewDoneOrderForm.Designer.cs">
+    <Compile Include="AddForms\AddNewDoneOrderForm.Designer.cs">
       <DependentUpon>AddNewDoneOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewProductForm.cs">
+    <Compile Include="AddForms\AddNewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewProductForm.Designer.cs">
+    <Compile Include="AddForms\AddNewProductForm.Designer.cs">
       <DependentUpon>AddNewProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewProviderForm.cs">
+    <Compile Include="AddForms\AddNewProviderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewProviderForm.Designer.cs">
+    <Compile Include="AddForms\AddNewProviderForm.Designer.cs">
       <DependentUpon>AddNewProviderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewServiceForm.cs">
+    <Compile Include="AddForms\AddNewRoleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewServiceForm.Designer.cs">
+    <Compile Include="AddForms\AddNewRoleForm.Designer.cs">
+      <DependentUpon>AddNewRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddForms\AddNewServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddNewServiceForm.Designer.cs">
       <DependentUpon>AddNewServiceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPositionForm.cs">
+    <Compile Include="AddForms\AddPositionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPositionForm.Designer.cs">
+    <Compile Include="AddForms\AddPositionForm.Designer.cs">
       <DependentUpon>AddPositionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientsForm.cs">
+    <Compile Include="AddForms\AddNewUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientsForm.Designer.cs">
-      <DependentUpon>ClientsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ComputerFirmDataSet.cs">
-      <DependentUpon>ComputerFirmDataSet.xsd</DependentUpon>
+    <Compile Include="AddForms\AddNewUserForm.Designer.cs">
+      <DependentUpon>AddNewUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ComputerFirmDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ComputerFirmDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DoneOrdersForm.cs">
+    <Compile Include="MainForms\ClientsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoneOrdersForm.Designer.cs">
+    <Compile Include="MainForms\ClientsForm.Designer.cs">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\DoneOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\DoneOrdersForm.Designer.cs">
       <DependentUpon>DoneOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoneServicesForm.cs">
+    <Compile Include="MainForms\DoneServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoneServicesForm.Designer.cs">
+    <Compile Include="MainForms\DoneServicesForm.Designer.cs">
       <DependentUpon>DoneServicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoneServicesReportForm.cs">
+    <Compile Include="MainForms\ManageUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoneServicesReportForm.Designer.cs">
+    <Compile Include="MainForms\ManageUsersForm.Designer.cs">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForms\DoneServicesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\DoneServicesReportForm.Designer.cs">
       <DependentUpon>DoneServicesReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="MainForms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormForAddWorkerToDB.cs">
+    <Compile Include="AddForms\FormForAddWorkerToDB.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForAddWorkerToDB.Designer.cs">
+    <Compile Include="AddForms\FormForAddWorkerToDB.Designer.cs">
       <DependentUpon>FormForAddWorkerToDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListOfOrdersForm.cs">
+    <Compile Include="MainForms\ListOfOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListOfOrdersForm.Designer.cs">
+    <Compile Include="MainForms\ListOfOrdersForm.Designer.cs">
       <DependentUpon>ListOfOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="MainForms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="MainForms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OtdelsForm.cs">
+    <Compile Include="MainForms\OtdelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OtdelsForm.Designer.cs">
+    <Compile Include="MainForms\OtdelsForm.Designer.cs">
       <DependentUpon>OtdelsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PositionsForm.cs">
+    <Compile Include="MainForms\PositionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PositionsForm.Designer.cs">
+    <Compile Include="MainForms\PositionsForm.Designer.cs">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsForm.cs">
+    <Compile Include="MainForms\ProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductsForm.Designer.cs">
+    <Compile Include="MainForms\ProductsForm.Designer.cs">
       <DependentUpon>ProductsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProvidersForm.cs">
+    <Compile Include="MainForms\ProvidersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProvidersForm.Designer.cs">
+    <Compile Include="MainForms\ProvidersForm.Designer.cs">
       <DependentUpon>ProvidersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchClientsForm.cs">
+    <Compile Include="MainForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchClientsForm.Designer.cs">
+    <Compile Include="MainForms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForms\SearchClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForms\SearchClientsForm.Designer.cs">
       <DependentUpon>SearchClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchDoneOrdersBetweenDateForm.cs">
+    <Compile Include="SearchForms\SearchDoneOrdersBetweenDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchDoneOrdersBetweenDateForm.Designer.cs">
+    <Compile Include="SearchForms\SearchDoneOrdersBetweenDateForm.Designer.cs">
       <DependentUpon>SearchDoneOrdersBetweenDateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchForm.cs">
+    <Compile Include="SearchForms\SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchForm.Designer.cs">
+    <Compile Include="SearchForms\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchInDoneOrdersForm.cs">
+    <Compile Include="SearchForms\SearchInDoneOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchInDoneOrdersForm.Designer.cs">
+    <Compile Include="SearchForms\SearchInDoneOrdersForm.Designer.cs">
       <DependentUpon>SearchInDoneOrdersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchInDoneServicesForm.cs">
+    <Compile Include="SearchForms\SearchInDoneServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchInDoneServicesForm.Designer.cs">
+    <Compile Include="SearchForms\SearchInDoneServicesForm.Designer.cs">
       <DependentUpon>SearchInDoneServicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchInListOfServicesForm.cs">
+    <Compile Include="SearchForms\SearchInListOfServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchInListOfServicesForm.Designer.cs">
+    <Compile Include="SearchForms\SearchInListOfServicesForm.Designer.cs">
       <DependentUpon>SearchInListOfServicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchProductForm.cs">
+    <Compile Include="SearchForms\SearchProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchProductForm.Designer.cs">
+    <Compile Include="SearchForms\SearchProductForm.Designer.cs">
       <DependentUpon>SearchProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchProvidersForm.cs">
+    <Compile Include="SearchForms\SearchProvidersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchProvidersForm.Designer.cs">
+    <Compile Include="SearchForms\SearchProvidersForm.Designer.cs">
       <DependentUpon>SearchProvidersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="TestReport.cs">
+    <Compile Include="ReportForms\TestReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestReport.Designer.cs">
+    <Compile Include="ReportForms\TestReport.Designer.cs">
       <DependentUpon>TestReport.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkerDb.cs" />
-    <Compile Include="WorkersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WorkersForm.Designer.cs">
-      <DependentUpon>WorkersForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddDoneService.resx">
+    <EmbeddedResource Include="AddForms\AddDoneService.resx">
       <DependentUpon>AddDoneService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewClientForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewClientForm.resx">
       <DependentUpon>AddNewClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewDoneOrderForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewDoneOrderForm.resx">
       <DependentUpon>AddNewDoneOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewProductForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewProductForm.resx">
       <DependentUpon>AddNewProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewProviderForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewProviderForm.resx">
       <DependentUpon>AddNewProviderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewServiceForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewRoleForm.resx">
+      <DependentUpon>AddNewRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AddNewServiceForm.resx">
       <DependentUpon>AddNewServiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPositionForm.resx">
+    <EmbeddedResource Include="AddForms\AddPositionForm.resx">
       <DependentUpon>AddPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientsForm.resx">
+    <EmbeddedResource Include="AddForms\AddNewUserForm.resx">
+      <DependentUpon>AddNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoneOrdersForm.resx">
+    <EmbeddedResource Include="MainForms\DoneOrdersForm.resx">
       <DependentUpon>DoneOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoneServicesForm.resx">
+    <EmbeddedResource Include="MainForms\DoneServicesForm.resx">
       <DependentUpon>DoneServicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoneServicesReport.rdlc" />
-    <EmbeddedResource Include="DoneServicesReportForm.resx">
+    <EmbeddedResource Include="MainForms\ManageUsersForm.resx">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\doneOrders.rdlc" />
+    <EmbeddedResource Include="ReportForms\DoneServicesReport.rdlc" />
+    <EmbeddedResource Include="ReportForms\DoneServicesReportForm.resx">
       <DependentUpon>DoneServicesReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="MainForms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormForAddWorkerToDB.resx">
+    <EmbeddedResource Include="AddForms\FormForAddWorkerToDB.resx">
       <DependentUpon>FormForAddWorkerToDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListOfOrdersForm.resx">
+    <EmbeddedResource Include="MainForms\ListOfOrdersForm.resx">
       <DependentUpon>ListOfOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="MainForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OtdelsForm.resx">
+    <EmbeddedResource Include="MainForms\OtdelsForm.resx">
       <DependentUpon>OtdelsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PositionsForm.resx">
+    <EmbeddedResource Include="MainForms\PositionsForm.resx">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsForm.resx">
+    <EmbeddedResource Include="MainForms\ProductsForm.resx">
       <DependentUpon>ProductsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -324,43 +349,46 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ProvidersForm.resx">
+    <EmbeddedResource Include="MainForms\ProvidersForm.resx">
       <DependentUpon>ProvidersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="Report5.rdlc" />
-    <EmbeddedResource Include="SearchClientsForm.resx">
+    <EmbeddedResource Include="MainForms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\Report1.rdlc" />
+    <EmbeddedResource Include="ReportForms\serviceReport.rdlc" />
+    <EmbeddedResource Include="ReportForms\testDoneOrderReport.rdlc" />
+    <EmbeddedResource Include="SearchForms\SearchClientsForm.resx">
       <DependentUpon>SearchClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchDoneOrdersBetweenDateForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchDoneOrdersBetweenDateForm.resx">
       <DependentUpon>SearchDoneOrdersBetweenDateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchInDoneOrdersForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchInDoneOrdersForm.resx">
       <DependentUpon>SearchInDoneOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchInDoneServicesForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchInDoneServicesForm.resx">
       <DependentUpon>SearchInDoneServicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchInListOfServicesForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchInListOfServicesForm.resx">
       <DependentUpon>SearchInListOfServicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchProductForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchProductForm.resx">
       <DependentUpon>SearchProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchProvidersForm.resx">
+    <EmbeddedResource Include="SearchForms\SearchProvidersForm.resx">
       <DependentUpon>SearchProvidersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestReport.rdlc" />
-    <EmbeddedResource Include="TestReport.resx">
+    <EmbeddedResource Include="ReportForms\TestReport.rdlc" />
+    <EmbeddedResource Include="ReportForms\TestReport.resx">
       <DependentUpon>TestReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WorkersForm.resx">
-      <DependentUpon>WorkersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ComputerFirmDataSet.xsc">
       <DependentUpon>ComputerFirmDataSet.xsd</DependentUpon>
@@ -389,8 +417,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ComputerFirm.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="ComputerFirm.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -408,6 +436,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

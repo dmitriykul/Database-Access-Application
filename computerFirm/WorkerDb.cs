@@ -39,7 +39,80 @@ namespace computerFirm
             {
                 MessageBox.Show(ex.Message);
             }
-            
+        }
+
+        // Метод для проверки, существует ли данный пользователь в базе данных
+        public static int GetData(string query, OleDbConnection connection)
+        {
+            OleDbCommand commandToDo = new OleDbCommand(query, connection);
+            try
+            {
+                var res = commandToDo.ExecuteNonQuery();
+                return res;
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        // Получить список: (Имя роли, изменение информации, удаление информации, добавление информации)
+        public static List<string> GetRoleAttributes(string login, OleDbConnection connection)
+        {
+            try
+            {
+                List<string> roleAttributes = new List<string> { };
+                OleDbCommand commandToGetRole = connection.CreateCommand();
+                commandToGetRole.CommandText = "SELECT [Role].[RoleName], [Role].[ChangeInformation], [Role].[DeleteInformation], [Role].[AddInformation]" +
+                    " FROM [Role], [User] WHERE ([User].[UserLogin] = \"" + login + "\") " +
+                    "AND ([User].UserRole = [Role].[RoleID])";
+                OleDbDataReader thisReader = commandToGetRole.ExecuteReader();
+                string role = string.Empty;
+                while (thisReader.Read())
+                {
+                    roleAttributes.Add(Convert.ToString(thisReader["RoleName"]));
+                    roleAttributes.Add(Convert.ToString(thisReader["ChangeInformation"]));
+                    roleAttributes.Add(Convert.ToString(thisReader["DeleteInformation"]));
+                    roleAttributes.Add(Convert.ToString(thisReader["AddInformation"]));
+                }
+                thisReader.Close();
+
+                return roleAttributes;
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<string> { };
+            }
+        }
+
+        // Получить словарь (ID, field)
+        public static Dictionary<int, string> GetDataByIdAndField(string id, string field, string table, OleDbConnection connection)
+        {
+                Dictionary<int, string> results = new Dictionary<int, string> { };
+            try
+            {
+                OleDbCommand commandGetDataByIdField = connection.CreateCommand();
+                commandGetDataByIdField.CommandText = $"SELECT {id}, {field} FROM {table}";
+                OleDbDataReader thisReader = commandGetDataByIdField.ExecuteReader();
+                while(thisReader.Read())
+                {
+                    results[Convert.ToInt32(thisReader[id])] = Convert.ToString(thisReader[field]);
+                }
+
+                thisReader.Close();
+                return results;
+            }
+            catch (OleDbException ex)
+            {
+
+                MessageBox.Show($"{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new Dictionary<int, string> { };
+            }
         }
 
         public static int MakeQueryForChangeTable(string query, OleDbConnection connection)

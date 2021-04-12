@@ -32,5 +32,37 @@ namespace computerFirm.Properties {
                 return ((string)(this["ComputerFirmConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ComputerFirm.accdb")]
+        public string ComputerFirmConnectionString1 {
+            get {
+                return ((string)(this["ComputerFirmConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\bin\\Debug\\ComputerF" +
+            "irm.accdb")]
+        public string ComputerFirmConnectionString2 {
+            get {
+                return ((string)(this["ComputerFirmConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"|DataDirectory|\\Kulik D.E 428-1 Ac" +
+            "cess.accdb\"")]
+        public string Kulik_D_E_428_1_AccessConnectionString {
+            get {
+                return ((string)(this["Kulik_D_E_428_1_AccessConnectionString"]));
+            }
+        }
     }
 }
