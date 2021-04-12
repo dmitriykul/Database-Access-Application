@@ -37,6 +37,23 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+
+            // Если роль "Продавец" или "Мастер", то скрыть возможности работы с таблицей Продукты
+            if(role[0] == "seller" || role[0] == "master")
+            {
+                label2.Hide();
+                productIdToDeleteTextBox.Hide();
+                button2.Hide();
+
+                button1.Hide();
+
+                queryForFillTableByProducts = "SELECT " +
+                "Product.Product as [Продукт], " +
+                "Provider.[ProviderName] as [Фирма], " +
+                "Product.Cost as [Стоимость], " +
+                "Product.IsOnSclad as [Наличие на складе] " +
+                "FROM Provider INNER JOIN Product ON Provider.ProviderID = Product.Provider";
+            }
             if(!Convert.ToBoolean(role[1]))
             {
                 changeInfoProductBtn.Hide();

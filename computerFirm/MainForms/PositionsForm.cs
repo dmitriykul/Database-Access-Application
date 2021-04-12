@@ -35,6 +35,21 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+            // Если роль "Продавец" или "Мастер", то скрыть возможность работы стаблицей Должности
+            if(role[0] == "seller" || role[0] == "master")
+            {
+                button1.Hide();
+
+                label2.Hide();
+                positionId.Hide();
+                deletePositionBtn.Hide();
+
+                addPositionBtn.Hide();
+
+                queryToFillTableByPosts = "SELECT " +
+                "PostName as [Название должности], " +
+                "Salary as [Зарплата] FROM Post";
+            }
             if(!Convert.ToBoolean(role[1]))
             {
                 button1.Hide();

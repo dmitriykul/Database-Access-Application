@@ -40,6 +40,27 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+            // Если роль "Продавец" или "Мастер", то скрыть возможность работы с таблицей Работники
+            if(role[0] == "seller" || role[0] == "master")
+            {
+                updateTableStringBtn.Hide();
+
+                label2.Hide();
+                workerid.Hide();
+                deleteWorkerBtn.Hide();
+
+                addWorkerBtn.Hide();
+
+                queryForFillTableByWorkers = "SELECT " +
+                "Worker.SecName as [Фамилия], " +
+                "Worker.WorkerName as [Имя], " +
+                "Worker.ThirdName as [Отчество], " +
+                "Post.PostName as [Должность], " +
+                "Department.DepartmentName as [Отдел], " +
+                "Worker.PhoneNumber as [Номер телефона]" +
+                " FROM Post INNER JOIN (Department INNER JOIN Worker ON Department.departmentID = Worker.Department) ON Post.PostID = Worker.Post";
+
+            }
             if(!Convert.ToBoolean(role[1]))
             {
                 updateTableStringBtn.Hide();

@@ -34,6 +34,21 @@ namespace computerFirm
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
 
+            // Если роль "Продавец" или "Мастер", то скрыть возможность работы с таблицей Отделы
+            if(role[0]=="seller" || role[0] == "master")
+            {
+                label2.Hide();
+                otdelIdTextbox.Hide();
+                deleteOtdelBtn.Hide();
+
+                label3.Hide();
+                otdelNameTextbox.Hide();
+                button1.Hide();
+
+                queryToFillOtdels = "SELECT " +
+                "DepartmentName as [Название отдела] FROM Department";
+            }
+
             if(!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();

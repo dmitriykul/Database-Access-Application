@@ -34,6 +34,14 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+
+            // Если роль "Продавец" или "Мастер", то скрыть возможности работы с таблицей Поставщики
+            if(role[0]=="seller" || role[0]=="master")
+            {
+                button2.Hide();
+
+                button1.Hide();
+            }
             if(!Convert.ToBoolean(role[1]))
             {
                 button2.Hide();

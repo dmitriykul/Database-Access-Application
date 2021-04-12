@@ -108,7 +108,7 @@ namespace computerFirm.ReportForms
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(572, 283);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
