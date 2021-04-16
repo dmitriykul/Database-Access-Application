@@ -69,6 +69,7 @@ namespace computerFirm
         private void PositionsForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, postTable, tablePost, queryToFillTableByPosts, dataGridView1);
+            dataGridView1.Columns[0].ReadOnly = true;
         }
 
         private void addPositionBtn_Click(object sender, EventArgs e)

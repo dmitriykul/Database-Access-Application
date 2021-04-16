@@ -80,6 +80,7 @@ namespace computerFirm
         private void Form1_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, workersTable, tableWorkersWithoutNums, queryForFillTableByWorkers, dataGridView1);
+            dataGridView1.Columns[0].ReadOnly = true;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

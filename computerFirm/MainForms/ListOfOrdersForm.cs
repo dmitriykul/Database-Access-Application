@@ -16,7 +16,7 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
-        string queryToFillServices = "SELECT " +
+        string queryToFillServices = "SELECT Service.ServiceID as [Код услуги], " +
             "Service.ServiceName as [Наименование услуги], " +
             "Service.ServiceCost as [Стоимость услуги], " +
             "Department.DepartmentName as [Наименование отдела]" +
@@ -67,6 +67,7 @@ namespace computerFirm
         private void ListOfOrdersForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, servicesAdapter, servicesTable, queryToFillServices, dataGridView1);
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void ListOfOrdersForm_FormClosing(object sender, FormClosingEventArgs e)

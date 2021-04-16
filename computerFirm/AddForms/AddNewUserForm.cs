@@ -15,19 +15,25 @@ namespace computerFirm.MainForms
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
+        private Dictionary<int, string> roles;
         public AddNewUserForm(string connect)
         {
             InitializeComponent();
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+
+            roles = WorkerDb.GetDataByIdAndField("RoleID", "RoleName", "Role", myConnection);
+            roleNamesComboBox.DataSource = new BindingSource(roles, null);
+            roleNamesComboBox.DisplayMember = "Value";
+            roleNamesComboBox.ValueMember = "Key";
         }
 
         private void addNewUserBtn_Click(object sender, EventArgs e)
         {
             string login = loginTextBox.Text;
             string password = passwordTextBox.Text;
-            int roleId = Convert.ToInt32(roleTextBox.Text);
+            int roleId = ((KeyValuePair<int, string>)roleNamesComboBox.SelectedItem).Key;
             string queryToInsertNewUser = $"INSERT INTO [User] (UserLogin, UserPassword, UserRole) VALUES ('{login}', '{password}', '{roleId}')";
             WorkerDb.MakeQueryForChangeTable(queryToInsertNewUser, myConnection);
             MessageBox.Show("Данные о новом пользователе добавлены");

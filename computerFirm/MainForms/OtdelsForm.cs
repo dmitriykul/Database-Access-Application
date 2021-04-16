@@ -67,6 +67,7 @@ namespace computerFirm
         private void OtdelsForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, otdelsAdapter, otdelsTable, queryToFillOtdels, dataGridView1);
+            dataGridView1.Columns[0].ReadOnly = true;
         }
 
         private void OtdelsForm_FormClosing(object sender, FormClosingEventArgs e)

@@ -63,7 +63,7 @@ namespace computerFirm
 
             string queryToAddNewDoneOrder = $"INSERT INTO DoneOrder (DoneOrderClient, DoneOrderProduct, DoneOrderWorker, DoneOrderDepartment, DoneOrderDate) VALUES ({clientID}, {productID}, {workerID}, {otdelID}, #{date}#)";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewDoneOrder, myConnection);
-            MessageBox.Show("Данные о новом заказе добавлены");
+            MessageBox.Show("Данные о новом выполненном заказе добавлены");
         }
 
         private void AddNewDoneOrderForm_FormClosing(object sender, FormClosingEventArgs e)

@@ -18,7 +18,7 @@ namespace computerFirm
             table = new DataTable();
             try
             {
-            adapter.Fill(table);
+                adapter.Fill(table);
             }
             catch(OleDbException ex)
             {

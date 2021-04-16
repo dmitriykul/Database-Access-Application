@@ -15,7 +15,7 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
-        string queryToFillTableByProviders = "SELECT " +
+        string queryToFillTableByProviders = "SELECT ProviderID as [Код поставщика], " +
             "ProviderName as [Наименованние фирмы]," +
             "ProviderEmail as [Электронная почта] FROM Provider";
         OleDbDataAdapter providerAdapter;
@@ -55,6 +55,7 @@ namespace computerFirm
         private void ProvidersForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, providerAdapter, providerTable, queryToFillTableByProviders, dataGridView1);
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void ProvidersForm_FormClosing(object sender, FormClosingEventArgs e)

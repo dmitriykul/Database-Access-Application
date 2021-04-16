@@ -16,8 +16,14 @@ namespace computerFirm.MainForms
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
-        string queryToFillUsers = "SELECT [User].UserID, [User].[UserLogin], [User].[UserPassword], [Role].[RoleName] FROM [User], [Role] WHERE [User].[UserRole] = [Role].RoleID";
-        string queryToFillRoles = "SELECT * FROM Role";
+        string queryToFillUsers = "SELECT [User].UserID as [Код пользователя], " +
+            "[User].[UserLogin] as [Логин], " +
+            "[User].[UserPassword] as [Пароль], " +
+            "[Role].[RoleName] as [Роль] FROM [User], [Role] WHERE [User].[UserRole] = [Role].RoleID";
+        string queryToFillRoles = "SELECT RoleID as [Код роли], [RoleName] as [Роль], " +
+            "[ChangeInformation] as [Изменение информации], " +
+            "[DeleteInformation] as [Удаление информации], " +
+            "[AddInformation] as [Добавление информации] FROM Role";
 
         OleDbDataAdapter rolesTable;
         DataTable tableRoles;
@@ -87,7 +93,7 @@ namespace computerFirm.MainForms
             }
             string query = $"DELETE FROM Role WHERE RoleID = {roleId}";    // запрос на удаление роли по коду
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о Пользователе {roleId} удалены");
+            MessageBox.Show($"Данные о роли {roleId} удалены");
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -73,6 +73,7 @@ namespace computerFirm
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, productsTableAdapter, productsTable, queryForFillTableByProducts, dataGridView2);
+            dataGridView2.Columns[0].ReadOnly = true;
         }
 
         private void ProductsForm_FormClosing(object sender, FormClosingEventArgs e)
