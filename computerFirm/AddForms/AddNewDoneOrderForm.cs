@@ -33,14 +33,17 @@ namespace computerFirm
             productComboBox.DataSource = new BindingSource(products, null);
             productComboBox.DisplayMember = "Value";
             productComboBox.ValueMember = "Key";
-            workers = WorkerDb.GetDataByIdAndField("WorkerID", "SecName", "Worker", myConnection);
-            workerComboBox.DataSource = new BindingSource(workers, null);
-            workerComboBox.DisplayMember = "Value";
-            workerComboBox.ValueMember = "Key";
             departments = WorkerDb.GetDataByIdAndField("DepartmentID", "DepartmentName", "Department", myConnection);
             departmentComboBox.DataSource = new BindingSource(departments, null);
             departmentComboBox.DisplayMember = "Value";
             departmentComboBox.ValueMember = "Key";
+
+            int otdelServiceId = ((KeyValuePair<int, string>)departmentComboBox.SelectedItem).Key;
+
+            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
+            workerComboBox.DataSource = new BindingSource(workers, null);
+            workerComboBox.DisplayMember = "Value";
+            workerComboBox.ValueMember = "Key";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +73,16 @@ namespace computerFirm
         {
             myConnection.Close();
             
+        }
+
+        private void departmentComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int otdelServiceId = ((KeyValuePair<int, string>)departmentComboBox.SelectedItem).Key;
+
+            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
+            workerComboBox.DataSource = new BindingSource(workers, null);
+            workerComboBox.DisplayMember = "Value";
+            workerComboBox.ValueMember = "Key";
         }
     }
 }

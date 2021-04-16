@@ -115,6 +115,31 @@ namespace computerFirm
             }
         }
 
+        public static Dictionary<int, string> GetDataByWorkerDepart(string id, string field, string table, string field2, int field3, OleDbConnection connection)
+        {
+            Dictionary<int, string> results = new Dictionary<int, string> { };
+            try
+            {
+                OleDbCommand commandGetDataByIdField = connection.CreateCommand();
+                commandGetDataByIdField.CommandText = $"SELECT {id}, {field} FROM {table} WHERE {table}.{field2} = {field3}";
+                OleDbDataReader thisReader = commandGetDataByIdField.ExecuteReader();
+                while (thisReader.Read())
+                {
+                    results[Convert.ToInt32(thisReader[id])] = Convert.ToString(thisReader[field]);
+                }
+
+                thisReader.Close();
+                return results;
+            }
+            catch (OleDbException ex)
+            {
+
+                MessageBox.Show($"{ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new Dictionary<int, string> { };
+            }
+        }
+
         public static int MakeQueryForChangeTable(string query, OleDbConnection connection)
         {
             OleDbCommand commandToDo = new OleDbCommand(query, connection);

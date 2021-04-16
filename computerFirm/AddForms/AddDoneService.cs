@@ -38,7 +38,10 @@ namespace computerFirm
             departComboBox.DataSource = new BindingSource(departments, null);
             departComboBox.DisplayMember = "Value";
             departComboBox.ValueMember = "Key";
-            workers = WorkerDb.GetDataByIdAndField("WorkerID", "SecName", "Worker", myConnection);
+
+            int otdelServiceId = ((KeyValuePair<int, string>)departComboBox.SelectedItem).Key;
+
+            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
             workerComboBox.DataSource = new BindingSource(workers, null);
             workerComboBox.DisplayMember = "Value";
             workerComboBox.ValueMember = "Key";
@@ -71,6 +74,21 @@ namespace computerFirm
         private void AddDoneService_FormClosing(object sender, FormClosingEventArgs e)
         {
             myConnection.Close();
+        }
+
+        private void departComboBox_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void departComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int otdelServiceId = ((KeyValuePair<int, string>)departComboBox.SelectedItem).Key;
+
+            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
+            workerComboBox.DataSource = new BindingSource(workers, null);
+            workerComboBox.DisplayMember = "Value";
+            workerComboBox.ValueMember = "Key";
         }
     }
 }

@@ -152,6 +152,8 @@ namespace computerFirm
             this.departComboBox.Name = "departComboBox";
             this.departComboBox.Size = new System.Drawing.Size(157, 21);
             this.departComboBox.TabIndex = 15;
+            this.departComboBox.DisplayMemberChanged += new System.EventHandler(this.departComboBox_DisplayMemberChanged);
+            this.departComboBox.SelectedValueChanged += new System.EventHandler(this.departComboBox_SelectedValueChanged);
             // 
             // workerComboBox
             // 

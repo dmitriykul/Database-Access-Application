@@ -141,6 +141,7 @@ namespace computerFirm
             this.departmentComboBox.Name = "departmentComboBox";
             this.departmentComboBox.Size = new System.Drawing.Size(142, 21);
             this.departmentComboBox.TabIndex = 14;
+            this.departmentComboBox.SelectedValueChanged += new System.EventHandler(this.departmentComboBox_SelectedValueChanged);
             // 
             // AddNewDoneOrderForm
             // 
