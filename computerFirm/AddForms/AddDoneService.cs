@@ -50,7 +50,8 @@ namespace computerFirm
         private void addDoneServices_Click(object sender, EventArgs e)
         {
             int clientId = -1, nameServiceId = -1, otdelServiceId = -1, workerServiceId = -1;
-            string date = serviceDate.Text, cost = serviceCost.Text;
+            string date = serviceDate.Text, costText = serviceCost.Text;
+            int cost = 0;
             try
             {
                 clientId = ((KeyValuePair<int, string>)clientComboBox.SelectedItem).Key;
@@ -65,7 +66,27 @@ namespace computerFirm
                 return;
             }
 
-            string queryToAddNewDoneService = $"INSERT INTO DoneService (DoneServiceName, DoneServiceCost, DoneServiceClient, DoneServiceDepartment, DoneServiceDate, DoneServiceWorker) VALUES ({nameServiceId}, '{cost}', {clientId}, {otdelServiceId}, #{date}#, {workerServiceId})";
+            try
+            {
+                cost = Math.Abs(Convert.ToInt32(costText));
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Неверный формат поля Стоимость", "Ошибка в поле Стоимость", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // проверка даты
+            List<string> dateTest = date.Split('/').ToList();
+            if (dateTest.Count != 3 || Convert.ToInt32(dateTest[0]) <= 0 || Convert.ToInt32(dateTest[0]) > 31 ||
+                Convert.ToInt32(dateTest[1]) <= 0 || Convert.ToInt32(dateTest[1]) > 12)
+            {
+                MessageBox.Show("Неправильный формат даты", "Ошибка в поле Дата", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string queryToAddNewDoneService = $"INSERT INTO DoneService (DoneServiceName, DoneServiceCost, DoneServiceClient, DoneServiceDepartment, DoneServiceDate, DoneServiceWorker) VALUES ({nameServiceId}, {cost}, {clientId}, {otdelServiceId}, #{date}#, {workerServiceId})";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewDoneService, myConnection);
             MessageBox.Show("Данные о выполненной услуге добавлены");
 

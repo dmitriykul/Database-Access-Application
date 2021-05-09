@@ -15,7 +15,8 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
-        string queryForFillTableByWorkers = "SELECT Worker.WorkerID as [Код рабоотника], " +
+        private Dictionary<int, string> workers;
+        string queryForFillTableByWorkers = "SELECT Worker.WorkerID as [Код Работника], " +
             "Worker.SecName as [Фамилия], " +
             "Worker.WorkerName as [Имя], " +
             "Worker.ThirdName as [Отчество], " +
@@ -46,19 +47,19 @@ namespace computerFirm
                 updateTableStringBtn.Hide();
 
                 label2.Hide();
-                workerid.Hide();
+                workersComboBox.Hide();
                 deleteWorkerBtn.Hide();
 
                 addWorkerBtn.Hide();
 
-                queryForFillTableByWorkers = "SELECT " +
+                /*queryForFillTableByWorkers = "SELECT " +
                 "Worker.SecName as [Фамилия], " +
                 "Worker.WorkerName as [Имя], " +
                 "Worker.ThirdName as [Отчество], " +
                 "Post.PostName as [Должность], " +
                 "Department.DepartmentName as [Отдел], " +
                 "Worker.PhoneNumber as [Номер телефона]" +
-                " FROM Post INNER JOIN (Department INNER JOIN Worker ON Department.departmentID = Worker.Department) ON Post.PostID = Worker.Post";
+                " FROM Post INNER JOIN (Department INNER JOIN Worker ON Department.departmentID = Worker.Department) ON Post.PostID = Worker.Post";*/
 
             }
             if(!Convert.ToBoolean(role[1]))
@@ -68,19 +69,39 @@ namespace computerFirm
             if(!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();
-                workerid.Hide();
+                workersComboBox.Hide();
                 deleteWorkerBtn.Hide();
             }
             if(!Convert.ToBoolean(role[3]))
             {
                 addWorkerBtn.Hide();
             }
+
+            workers = WorkerDb.GetDataByIdAndField("WorkerID", "SecName", "Worker", myConnection);
+            if(workers.Count != 0)
+            {
+                workersComboBox.Enabled = true;
+                deleteWorkerBtn.Enabled = true;
+                updateTableStringBtn.Enabled = true;
+                workersComboBox.DataSource = new BindingSource(workers, null);
+                workersComboBox.DisplayMember = "Value";
+                workersComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                workersComboBox.Enabled = false;
+                deleteWorkerBtn.Enabled = false;
+                updateTableStringBtn.Enabled = false;
+            }
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, workersTable, tableWorkersWithoutNums, queryForFillTableByWorkers, dataGridView1);
             dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -91,9 +112,11 @@ namespace computerFirm
         private void deleteWorkerBtn_Click(object sender, EventArgs e)
         {
             int workerId = -1;
+            string secName = "";
             try
             {
-                workerId = Convert.ToInt32(workerid.Text);
+                workerId = ((KeyValuePair<int, string>)workersComboBox.SelectedItem).Key;
+                secName = ((KeyValuePair<int, string>)workersComboBox.SelectedItem).Value;
             }
             catch (Exception ex)
             {
@@ -102,7 +125,7 @@ namespace computerFirm
             }
             string query = $"DELETE FROM Worker WHERE WorkerID = {workerId}";    // запрос на удаление сотрудника по коду
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о сотруднике {workerId} удалены");
+            MessageBox.Show($"Данные о сотруднике {secName} удалены");
         }
 
         private void addWorkerBtn_Click(object sender, EventArgs e)
@@ -123,6 +146,22 @@ namespace computerFirm
         private void Form1_Activated(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, workersTable, tableWorkersWithoutNums, queryForFillTableByWorkers, dataGridView1);
+            workers = WorkerDb.GetDataByIdAndField("WorkerID", "SecName", "Worker", myConnection);
+            if (workers.Count != 0)
+            {
+                workersComboBox.Enabled = true;
+                deleteWorkerBtn.Enabled = true;
+                updateTableStringBtn.Enabled = true;
+                workersComboBox.DataSource = new BindingSource(workers, null);
+                workersComboBox.DisplayMember = "Value";
+                workersComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                workersComboBox.Enabled = false;
+                deleteWorkerBtn.Enabled = false;
+                updateTableStringBtn.Enabled = false;
+            }
         }
 
         private void поискToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,6 +225,8 @@ namespace computerFirm
                 $"WHERE Worker.WorkerID = {workerId}";
             WorkerDb.MakeQueryForChangeTable(queryToUpdateString, myConnection);
             WorkerDb.UpdateTable(myConnection, workersTable, tableWorkersWithoutNums, queryForFillTableByWorkers, dataGridView1);
+
+            MessageBox.Show($"Данные о работнике {secName} обновлены", "Данные обновлены", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

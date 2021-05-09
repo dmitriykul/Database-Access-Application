@@ -21,6 +21,7 @@ namespace computerFirm
             "Service.ServiceCost as [Стоимость услуги], " +
             "Department.DepartmentName as [Наименование отдела]" +
             "FROM Department INNER JOIN Service ON Department.DepartmentID = Service.ServiceDepartment";
+        private Dictionary<int, string> services;
         OleDbDataAdapter servicesAdapter;
         DataTable servicesTable;
         public ListOfOrdersForm(string connect)
@@ -43,7 +44,7 @@ namespace computerFirm
                 button3.Hide();
 
                 label2.Hide();
-                serviceToDeleteTextBox.Hide();
+                ServicesComboBox.Hide();
                 button2.Hide();
 
                 button1.Hide();
@@ -55,12 +56,29 @@ namespace computerFirm
             if (!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();
-                serviceToDeleteTextBox.Hide();
+                ServicesComboBox.Hide();
                 button2.Hide();
             }
             if (!Convert.ToBoolean(role[3]))
             {
                 button1.Hide();
+            }
+
+            services = WorkerDb.GetDataByIdAndField("ServiceID", "ServiceName", "Service", myConnection);
+            if(services.Count != 0)
+            {
+                ServicesComboBox.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                ServicesComboBox.DataSource = new BindingSource(services, null);
+                ServicesComboBox.DisplayMember = "Value";
+                ServicesComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                ServicesComboBox.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
             }
         }
 
@@ -77,16 +95,31 @@ namespace computerFirm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string nameServiceToDelete = serviceToDeleteTextBox.Text;
-            string query = $"DELETE FROM Service WHERE ServiceName = '{nameServiceToDelete}'";    // запрос на удаление услуги по наименованию
+            int idServiceToDelete = ((KeyValuePair<int, string>)ServicesComboBox.SelectedItem).Key;
+            string nameServiceToDelete = ((KeyValuePair<int, string>)ServicesComboBox.SelectedItem).Value;
+            string query = $"DELETE FROM Service WHERE ServiceID = {idServiceToDelete}";    // запрос на удаление услуги по наименованию
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о услуге '{nameServiceToDelete}' удалены");
+            MessageBox.Show($"Данные о услуге {nameServiceToDelete} удалены");
             WorkerDb.UpdateTable(myConnection, servicesAdapter, servicesTable, queryToFillServices, dataGridView1);
         }
 
         private void ListOfOrdersForm_Activated(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, servicesAdapter, servicesTable, queryToFillServices, dataGridView1);
+            services = WorkerDb.GetDataByIdAndField("ServiceID", "ServiceName", "Service", myConnection);
+            if (services.Count != 0)
+            {
+                ServicesComboBox.Enabled = true;
+                button2.Enabled = true;
+                ServicesComboBox.DataSource = new BindingSource(services, null);
+                ServicesComboBox.DisplayMember = "Value";
+                ServicesComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                ServicesComboBox.Enabled = false;
+                button2.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -144,6 +177,8 @@ namespace computerFirm
                 $"SET ServiceDepartment=DLookUp(\"DepartmentID\", \"Department\", \"[DepartmentName]= '{otdelName}'\") " +
                 $"WHERE Service.ServiceID = {serviceId}";
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
+
+            MessageBox.Show($"Данные о услуге {serviceName} обновлены");
         }
     }
 }

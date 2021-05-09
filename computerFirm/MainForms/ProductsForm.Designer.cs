@@ -37,10 +37,10 @@ namespace computerFirm
             this.продукцияBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.productIdToDeleteTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.продукцияBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.changeInfoProductBtn = new System.Windows.Forms.Button();
+            this.productsComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.продукцияBindingSource1)).BeginInit();
@@ -107,25 +107,17 @@ namespace computerFirm
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 393);
+            this.label2.Location = new System.Drawing.Point(17, 390);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 21;
-            this.label2.Text = "ID продукта";
-            // 
-            // productIdToDeleteTextBox
-            // 
-            this.productIdToDeleteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.productIdToDeleteTextBox.Location = new System.Drawing.Point(16, 416);
-            this.productIdToDeleteTextBox.Name = "productIdToDeleteTextBox";
-            this.productIdToDeleteTextBox.Size = new System.Drawing.Size(100, 20);
-            this.productIdToDeleteTextBox.TabIndex = 22;
+            this.label2.Text = "Продукт";
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(132, 404);
+            this.button2.Location = new System.Drawing.Point(195, 405);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 32);
             this.button2.TabIndex = 23;
@@ -141,7 +133,7 @@ namespace computerFirm
             // 
             this.changeInfoProductBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.changeInfoProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changeInfoProductBtn.Location = new System.Drawing.Point(352, 404);
+            this.changeInfoProductBtn.Location = new System.Drawing.Point(390, 405);
             this.changeInfoProductBtn.Name = "changeInfoProductBtn";
             this.changeInfoProductBtn.Size = new System.Drawing.Size(206, 32);
             this.changeInfoProductBtn.TabIndex = 24;
@@ -149,14 +141,24 @@ namespace computerFirm
             this.changeInfoProductBtn.UseVisualStyleBackColor = true;
             this.changeInfoProductBtn.Click += new System.EventHandler(this.changeInfoProductBtn_Click);
             // 
+            // productsComboBox
+            // 
+            this.productsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.productsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productsComboBox.FormattingEnabled = true;
+            this.productsComboBox.Location = new System.Drawing.Point(21, 413);
+            this.productsComboBox.Name = "productsComboBox";
+            this.productsComboBox.Size = new System.Drawing.Size(153, 21);
+            this.productsComboBox.TabIndex = 25;
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.productsComboBox);
             this.Controls.Add(this.changeInfoProductBtn);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.productIdToDeleteTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
@@ -187,9 +189,9 @@ namespace computerFirm
         private System.Windows.Forms.BindingSource продукцияBindingSource;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox productIdToDeleteTextBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource продукцияBindingSource1;
         private System.Windows.Forms.Button changeInfoProductBtn;
+        private System.Windows.Forms.ComboBox productsComboBox;
     }
 }

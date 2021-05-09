@@ -33,13 +33,13 @@ namespace computerFirm.MainForms
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.userIDlabel = new System.Windows.Forms.Label();
-            this.userIDTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.roleIDTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteRoleBtn = new System.Windows.Forms.Button();
             this.changePropsBtn = new System.Windows.Forms.Button();
+            this.rolesComboBox = new System.Windows.Forms.ComboBox();
+            this.usersComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -85,17 +85,9 @@ namespace computerFirm.MainForms
             this.userIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userIDlabel.Location = new System.Drawing.Point(12, 463);
             this.userIDlabel.Name = "userIDlabel";
-            this.userIDlabel.Size = new System.Drawing.Size(158, 24);
+            this.userIDlabel.Size = new System.Drawing.Size(139, 24);
             this.userIDlabel.TabIndex = 3;
-            this.userIDlabel.Text = "ID пользователя";
-            // 
-            // userIDTextBox
-            // 
-            this.userIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.userIDTextBox.Location = new System.Drawing.Point(16, 499);
-            this.userIDTextBox.Name = "userIDTextBox";
-            this.userIDTextBox.Size = new System.Drawing.Size(154, 20);
-            this.userIDTextBox.TabIndex = 4;
+            this.userIDlabel.Text = "Пользователь";
             // 
             // dataGridView2
             // 
@@ -119,30 +111,22 @@ namespace computerFirm.MainForms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // roleIDTextBox
-            // 
-            this.roleIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.roleIDTextBox.Location = new System.Drawing.Point(553, 499);
-            this.roleIDTextBox.Name = "roleIDTextBox";
-            this.roleIDTextBox.Size = new System.Drawing.Size(71, 20);
-            this.roleIDTextBox.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(549, 463);
+            this.label1.Location = new System.Drawing.Point(543, 465);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 24);
+            this.label1.Size = new System.Drawing.Size(54, 24);
             this.label1.TabIndex = 8;
-            this.label1.Text = "ID роли";
+            this.label1.Text = "Роль";
             // 
             // deleteRoleBtn
             // 
             this.deleteRoleBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteRoleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteRoleBtn.Location = new System.Drawing.Point(664, 463);
+            this.deleteRoleBtn.Location = new System.Drawing.Point(689, 465);
             this.deleteRoleBtn.Name = "deleteRoleBtn";
             this.deleteRoleBtn.Size = new System.Drawing.Size(160, 56);
             this.deleteRoleBtn.TabIndex = 9;
@@ -154,7 +138,7 @@ namespace computerFirm.MainForms
             // 
             this.changePropsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.changePropsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changePropsBtn.Location = new System.Drawing.Point(855, 463);
+            this.changePropsBtn.Location = new System.Drawing.Point(870, 463);
             this.changePropsBtn.Name = "changePropsBtn";
             this.changePropsBtn.Size = new System.Drawing.Size(114, 56);
             this.changePropsBtn.TabIndex = 10;
@@ -162,18 +146,38 @@ namespace computerFirm.MainForms
             this.changePropsBtn.UseVisualStyleBackColor = true;
             this.changePropsBtn.Click += new System.EventHandler(this.changePropsBtn_Click);
             // 
+            // rolesComboBox
+            // 
+            this.rolesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rolesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rolesComboBox.FormattingEnabled = true;
+            this.rolesComboBox.Location = new System.Drawing.Point(547, 498);
+            this.rolesComboBox.Name = "rolesComboBox";
+            this.rolesComboBox.Size = new System.Drawing.Size(121, 21);
+            this.rolesComboBox.TabIndex = 11;
+            // 
+            // usersComboBox
+            // 
+            this.usersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.usersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.usersComboBox.FormattingEnabled = true;
+            this.usersComboBox.Location = new System.Drawing.Point(12, 498);
+            this.usersComboBox.Name = "usersComboBox";
+            this.usersComboBox.Size = new System.Drawing.Size(158, 21);
+            this.usersComboBox.TabIndex = 12;
+            // 
             // ManageUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 531);
+            this.Controls.Add(this.usersComboBox);
+            this.Controls.Add(this.rolesComboBox);
             this.Controls.Add(this.changePropsBtn);
             this.Controls.Add(this.deleteRoleBtn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.roleIDTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.userIDTextBox);
             this.Controls.Add(this.userIDlabel);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnAddUser);
@@ -197,12 +201,12 @@ namespace computerFirm.MainForms
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Label userIDlabel;
-        private System.Windows.Forms.TextBox userIDTextBox;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox roleIDTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button deleteRoleBtn;
         private System.Windows.Forms.Button changePropsBtn;
+        private System.Windows.Forms.ComboBox rolesComboBox;
+        private System.Windows.Forms.ComboBox usersComboBox;
     }
 }

@@ -31,7 +31,7 @@ namespace computerFirm
 
         public string makeQuery()
         {
-            string query = "SELECT Service.ServiceID as [Код услуги], " +
+            string query = "SELECT " +
                 "Service.ServiceName as [Наименование услуги], " +
                 "Service.ServiceCost as [Стоимость услуги], " +
                 "Department.DepartmentName as [Наименование отдела] " +
@@ -51,7 +51,9 @@ namespace computerFirm
                 query += $"(Department.DepartmentName LIKE '%{serviceOtdelTextBox.Text}%')";
                 return query;
             }
-            return "SELECT Service.ServiceID, Service.ServiceName, Service.ServiceCost, Department.DepartmentName " +
+            return "SELECT Service.ServiceName as [Наименование услуги], " +
+                "Service.ServiceCost as [Стоимость услуги], " +
+                "Department.DepartmentName as [Наименование отдела] " +
                 "FROM Department INNER JOIN Service ON Department.DepartmentID = Service.ServiceDepartment";
         }
 

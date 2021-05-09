@@ -131,6 +131,7 @@ namespace computerFirm
             // 
             // serviceNameComboBox
             // 
+            this.serviceNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serviceNameComboBox.FormattingEnabled = true;
             this.serviceNameComboBox.Location = new System.Drawing.Point(178, 22);
             this.serviceNameComboBox.Name = "serviceNameComboBox";
@@ -139,6 +140,7 @@ namespace computerFirm
             // 
             // clientComboBox
             // 
+            this.clientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.clientComboBox.FormattingEnabled = true;
             this.clientComboBox.Location = new System.Drawing.Point(178, 94);
             this.clientComboBox.Name = "clientComboBox";
@@ -147,6 +149,7 @@ namespace computerFirm
             // 
             // departComboBox
             // 
+            this.departComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.departComboBox.FormattingEnabled = true;
             this.departComboBox.Location = new System.Drawing.Point(178, 127);
             this.departComboBox.Name = "departComboBox";
@@ -157,6 +160,7 @@ namespace computerFirm
             // 
             // workerComboBox
             // 
+            this.workerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.workerComboBox.FormattingEnabled = true;
             this.workerComboBox.Location = new System.Drawing.Point(178, 201);
             this.workerComboBox.Name = "workerComboBox";

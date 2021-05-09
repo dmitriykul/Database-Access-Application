@@ -16,6 +16,7 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
+        private Dictionary<int, string> positions;
         string queryToFillTableByPosts = "SELECT PostID as [Код должности], " +
             "PostName as [Название должности], " +
             "Salary as [Зарплата] FROM Post";
@@ -41,7 +42,7 @@ namespace computerFirm
                 button1.Hide();
 
                 label2.Hide();
-                positionId.Hide();
+                positionsComboBox.Hide();
                 deletePositionBtn.Hide();
 
                 addPositionBtn.Hide();
@@ -57,12 +58,29 @@ namespace computerFirm
             if(!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();
-                positionId.Hide();
+                positionsComboBox.Hide();
                 deletePositionBtn.Hide();
             }
             if(!Convert.ToBoolean(role[3]))
             {
                 addPositionBtn.Hide();
+            }
+
+            positions = WorkerDb.GetDataByIdAndField("PostID", "PostName", "Post", myConnection);
+            if (positions.Count != 0)
+            {
+                positionsComboBox.Enabled = true;
+                deletePositionBtn.Enabled = true;
+                button1.Enabled = true;
+                positionsComboBox.DataSource = new BindingSource(positions, null);
+                positionsComboBox.DisplayMember = "Value";
+                positionsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                positionsComboBox.Enabled = false;
+                deletePositionBtn.Enabled = false;
+                button1.Enabled = false;
             }
         }
 
@@ -70,6 +88,7 @@ namespace computerFirm
         {
             WorkerDb.UpdateTable(myConnection, postTable, tablePost, queryToFillTableByPosts, dataGridView1);
             dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void addPositionBtn_Click(object sender, EventArgs e)
@@ -82,9 +101,11 @@ namespace computerFirm
         private void deletePositionBtn_Click(object sender, EventArgs e)
         {
             int posId = -1;
+            string postName = "";
             try
             {
-                posId = Convert.ToInt32(positionId.Text);
+                posId = ((KeyValuePair<int, string>)positionsComboBox.SelectedItem).Key;
+                postName = ((KeyValuePair<int, string>)positionsComboBox.SelectedItem).Value;
             }
             catch(Exception ex)
             {
@@ -93,13 +114,29 @@ namespace computerFirm
             }
             string query = $"DELETE FROM Post WHERE PostID = {posId}";    // запрос на удаление сотрудника по коду
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о должности {posId} удалены");
+            MessageBox.Show($"Данные о должности {postName} удалены");
         }
 
         private void PositionsForm_Activated(object sender, EventArgs e)
         {
             //this.должностиTableAdapter1.Fill(this.computerFirmDataSet.Должности);
             WorkerDb.UpdateTable(myConnection, postTable, tablePost, queryToFillTableByPosts, dataGridView1);
+            positions = WorkerDb.GetDataByIdAndField("PostID", "PostName", "Post", myConnection);
+            if (positions.Count != 0)
+            {
+                positionsComboBox.Enabled = true;
+                deletePositionBtn.Enabled = true;
+                button1.Enabled = true;
+                positionsComboBox.DataSource = new BindingSource(positions, null);
+                positionsComboBox.DisplayMember = "Value";
+                positionsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                positionsComboBox.Enabled = false;
+                deletePositionBtn.Enabled = false;
+                button1.Enabled = false;
+            }
         }
 
         private void PositionsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -136,6 +173,7 @@ namespace computerFirm
 
             string query = $"UPDATE Post SET PostName = '{positionName}', Salary = {positionSalary} WHERE PostID = {postId}";
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
+            MessageBox.Show($"Данные о должности {positionName} изменены", "Данные изменены", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

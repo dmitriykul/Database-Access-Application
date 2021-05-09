@@ -15,6 +15,7 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
+        private Dictionary<int, string> departments;
         string queryToFillOtdels = "SELECT DepartmentID as [Код отдела], " +
             "DepartmentName as [Название отдела] FROM Department";
         OleDbDataAdapter otdelsAdapter;
@@ -38,7 +39,7 @@ namespace computerFirm
             if(role[0]=="seller" || role[0] == "master")
             {
                 label2.Hide();
-                otdelIdTextbox.Hide();
+                departmentsComboBox.Hide();
                 deleteOtdelBtn.Hide();
 
                 label3.Hide();
@@ -52,7 +53,7 @@ namespace computerFirm
             if(!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();
-                otdelIdTextbox.Hide();
+                departmentsComboBox.Hide();
                 deleteOtdelBtn.Hide();
             }
 
@@ -62,12 +63,28 @@ namespace computerFirm
                 otdelNameTextbox.Hide();
                 button1.Hide();
             }
+
+            departments = WorkerDb.GetDataByIdAndField("DepartmentID", "DepartmentName", "Department", myConnection);
+            if (departments.Count != 0)
+            {
+                departmentsComboBox.Enabled = true;
+                deleteOtdelBtn.Enabled = true;
+                departmentsComboBox.DataSource = new BindingSource(departments, null);
+                departmentsComboBox.DisplayMember = "Value";
+                departmentsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                departmentsComboBox.Enabled = false;
+                deleteOtdelBtn.Enabled = false;
+            }
         }
 
         private void OtdelsForm_Load(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, otdelsAdapter, otdelsTable, queryToFillOtdels, dataGridView1);
             dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void OtdelsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,9 +95,11 @@ namespace computerFirm
         private void deleteOtdelBtn_Click(object sender, EventArgs e)
         {
             int otdelId = -1;
+            string depName = "";
             try
             {
-                otdelId = Convert.ToInt32(otdelIdTextbox.Text);
+                otdelId = ((KeyValuePair<int, string>)departmentsComboBox.SelectedItem).Key;
+                depName = ((KeyValuePair<int, string>)departmentsComboBox.SelectedItem).Value;
             }
             catch (Exception ex)
             {
@@ -89,13 +108,27 @@ namespace computerFirm
             }
             string query = $"DELETE FROM Department WHERE DepartmentID = {otdelId}";    // запрос на удаление сотрудника по коду
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о отделе {otdelId} удалены");
+            MessageBox.Show($"Данные о отделе {depName} удалены");
             WorkerDb.UpdateTable(myConnection, otdelsAdapter, otdelsTable, queryToFillOtdels, dataGridView1);
         }
 
         private void OtdelsForm_Activated(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, otdelsAdapter, otdelsTable, queryToFillOtdels, dataGridView1);
+            departments = WorkerDb.GetDataByIdAndField("DepartmentID", "DepartmentName", "Department", myConnection);
+            if (departments.Count != 0)
+            {
+                departmentsComboBox.Enabled = true;
+                deleteOtdelBtn.Enabled = true;
+                departmentsComboBox.DataSource = new BindingSource(departments, null);
+                departmentsComboBox.DisplayMember = "Value";
+                departmentsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                departmentsComboBox.Enabled = false;
+                deleteOtdelBtn.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

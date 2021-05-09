@@ -29,6 +29,11 @@ namespace computerFirm.AddForms
             bool changeInf = changeInfCheckBox.Checked;
             bool deleteInf = deleteInfCheckBox.Checked;
             bool addInf = addInfCheckBox.Checked;
+            if(String.IsNullOrEmpty(roleName))
+            {
+                MessageBox.Show("Введите название роли", "Не все поля заполнены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             string queryToAddNewRole = $"INSERT INTO Role (RoleName, ChangeInformation, DeleteInformation, AddInformation) VAlUES ('{roleName}'," +
                 $" {changeInf}, {deleteInf}, {addInf})";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewRole, myConnection);

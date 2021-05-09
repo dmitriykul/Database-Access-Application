@@ -42,11 +42,11 @@ namespace computerFirm
 
             try
             {
-                productCost = Convert.ToDecimal(productCostTextBox.Text);
+                productCost = Math.Abs(Convert.ToDecimal(productCostTextBox.Text));
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Ошибка в вводе цены, повторите попытку\n{ex.Message}", "Ошибка в цене");
+                MessageBox.Show($"Ошибка в вводе цены, повторите попытку\n{ex.Message}", "Ошибка в цене", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -33,7 +33,6 @@ namespace computerFirm
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поискВПромежуткеДатToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.выполненныеЗаказыBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -58,8 +57,7 @@ namespace computerFirm
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.поискToolStripMenuItem,
-            this.поискВПромежуткеДатToolStripMenuItem});
+            this.поискToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -72,13 +70,6 @@ namespace computerFirm
             this.поискToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.поискToolStripMenuItem.Text = "Поиск";
             this.поискToolStripMenuItem.Click += new System.EventHandler(this.поискToolStripMenuItem_Click);
-            // 
-            // поискВПромежуткеДатToolStripMenuItem
-            // 
-            this.поискВПромежуткеДатToolStripMenuItem.Name = "поискВПромежуткеДатToolStripMenuItem";
-            this.поискВПромежуткеДатToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
-            this.поискВПромежуткеДатToolStripMenuItem.Text = "Поиск в промежутке дат";
-            this.поискВПромежуткеДатToolStripMenuItem.Click += new System.EventHandler(this.поискВПромежуткеДатToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -159,7 +150,6 @@ namespace computerFirm
         private System.Windows.Forms.BindingSource выполненныеЗаказыBindingSource;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource выполненныеЗаказыBindingSource1;
-        private System.Windows.Forms.ToolStripMenuItem поискВПромежуткеДатToolStripMenuItem;
         private System.Windows.Forms.Button makeReportBtn;
     }
 }

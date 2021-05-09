@@ -170,5 +170,15 @@ namespace computerFirm
             }
             return table;
         }
+
+        public static bool CheckPhoneNumber(string phoneNum)
+        {
+            foreach (char digit in phoneNum)
+            {
+                if (!Char.IsNumber(digit))
+                    return false;
+            }
+            return true;
+        }
     }
 }

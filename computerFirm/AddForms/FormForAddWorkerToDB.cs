@@ -40,10 +40,11 @@ namespace computerFirm
             string name = workerName.Text;
             string secondName = workerSecondName.Text;
             string thirdName = workerThirdName.Text;
+            string phoneNum = workerPhoneNum.Text;
             int post = -1;
             int otdel = -1;
 
-            if(name == "" || secondName == "" || thirdName == "")
+            if(name == "" || secondName == "" || thirdName == "" || phoneNum == "")
             {
                 MessageBox.Show("Не все поля заполнены, пожалуйста, заполните все поля", "Не все поля заполнены",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,11 +73,12 @@ namespace computerFirm
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string phoneNum = workerPhoneNum.Text;
-            if(phoneNum.Length != 11)
+            
+            if(phoneNum.Length != 11 || !WorkerDb.CheckPhoneNumber(phoneNum))
             {
                 MessageBox.Show("Неправильно введён номер телефона, номер должен состоять из 11 цифр (89999999999)", "Неправильный номер телефона",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             string queryToAddNewWorker = $"INSERT INTO Worker (SecName, WorkerName, ThirdName, Post, Department, PhoneNumber) VALUES ('{name}', '{secondName}', '{thirdName}', {post}, {otdel}, '{phoneNum}')";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewWorker, myConnection);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace computerFirm
 {
@@ -34,7 +35,8 @@ namespace computerFirm
                 MessageBox.Show("Пожалуйста, заполните все поля", "Не все поля заполнены", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if(phoneNum.Length != 11)
+            
+            if(phoneNum.Length != 11 || !WorkerDb.CheckPhoneNumber(phoneNum))
             {
                 MessageBox.Show("Номер должен состоять из 11 цифр (89999999999)", "Некорректный ввод номера телефона", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -43,6 +45,8 @@ namespace computerFirm
             WorkerDb.MakeQueryForChangeTable(queryToAddNewClient, myConnection);
             MessageBox.Show("Данные о новом клиенте добавлены");
         }
+
+        
 
         private void AddNewClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {

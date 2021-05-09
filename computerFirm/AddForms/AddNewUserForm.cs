@@ -33,6 +33,11 @@ namespace computerFirm.MainForms
         {
             string login = loginTextBox.Text;
             string password = passwordTextBox.Text;
+            if(String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Не все поля заполнены, заполните все поля", "Есть пустые поля", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int roleId = ((KeyValuePair<int, string>)roleNamesComboBox.SelectedItem).Key;
             string queryToInsertNewUser = $"INSERT INTO [User] (UserLogin, UserPassword, UserRole) VALUES ('{login}', '{password}', '{roleId}')";
             WorkerDb.MakeQueryForChangeTable(queryToInsertNewUser, myConnection);

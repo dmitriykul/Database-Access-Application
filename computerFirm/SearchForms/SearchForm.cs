@@ -74,13 +74,13 @@ namespace computerFirm
                 query += $"(Worker.PhoneNumber LIKE '{phoneNumForSearch.Text}%')";
                 return query;
             }
-            return "SELECT Worker.WorkerID, " +
-                "Worker.SecName, " +
-                "Worker.WorkerName, " +
-                "Worker.ThirdName, " +
-                "Post.PostName, " +
-                "Department.DepartmentName, " +
-                "Worker.PhoneNumber" +
+            return "SELECT " +
+                "Worker.SecName as [Фамилия], " +
+                "Worker.WorkerName as [Имя], " +
+                "Worker.ThirdName as [Отчество], " +
+                "Post.PostName as [Должность], " +
+                "Department.DepartmentName as [Отдел], " +
+                "Worker.PhoneNumber as [Номер телефона]" +
             " FROM Post INNER JOIN (Department INNER JOIN Worker ON Department.DepartmentID = Worker.Department) ON Post.PostID = Worker.Post";
         }
 

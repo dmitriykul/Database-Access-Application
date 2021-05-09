@@ -64,7 +64,12 @@ namespace computerFirm
                 query += $"(Service.[ServiceName] LIKE '%{serviceNameIdSearch.Text}%')";
                 return query;
             }
-            return "SELECT Service.[ServiceName], DoneService.DoneServiceCost, Client.ClientSecName, Department.DepartmentName, DoneService.DoneServiceDate, Worker.SecName " +
+            return "SELECT Service.[ServiceName] as [Наименование услуги], " +
+                "DoneService.DoneServiceCost as [Стоимость], " +
+                "Client.ClientSecName as [Фамилия клиента], " +
+                "Department.DepartmentName as [Наименование отдела], " +
+                "DoneService.DoneServiceDate as [Дата], " +
+                "Worker.SecName as [Фамилия работника] " +
             "FROM Service, DoneService, Client, Department, Worker " +
             "WHERE (Service.ServiceID = DoneService.DoneServiceName) AND (Client.ClientID = DoneService.DoneServiceClient) AND " +
             "(Department.DepartmentID = DoneService.DoneServiceDepartment) AND (Worker.WorkerID = DoneService.DoneServiceWorker)";

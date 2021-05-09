@@ -33,12 +33,24 @@ namespace computerFirm
         {
             string serviceName = serviceNameTextBox.Text;
             string serviceCost = serviceCostTextBox.Text;
+            int cost = 0;
             int serviceOtdelId = -1;
 
             if(serviceName == "" || serviceCost == "")
             {
                 MessageBox.Show("Пожалуйста, заполните все поля", "Не все поля заполнены", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                cost = Math.Abs(Convert.ToInt32(serviceCost));
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Неверный формат поля Стоимость", "Ошибка в поле Стоимость", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -53,7 +65,7 @@ namespace computerFirm
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string queryToAddNewService = $"INSERT INTO Service (ServiceName, ServiceCost, ServiceDepartment) VALUES ('{serviceName}', '{serviceCost}', {serviceOtdelId})";
+            string queryToAddNewService = $"INSERT INTO Service (ServiceName, ServiceCost, ServiceDepartment) VALUES ('{serviceName}', {cost}, {serviceOtdelId})";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewService, myConnection);
             MessageBox.Show("Данные о новой услуге добавлены");
         }

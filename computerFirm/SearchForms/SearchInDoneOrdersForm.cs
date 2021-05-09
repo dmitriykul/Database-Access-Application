@@ -57,7 +57,11 @@ namespace computerFirm
                 query += $"(Worker.SecName LIKE '{workerIdForSearch.Text}%')";
                 return query;
             }
-            return "SELECT Client.ClientSecName, Product.Product, Worker.SecName, Department.DepartmentName, DoneOrder.DoneOrderDate " +
+            return "SELECT Client.ClientSecName as [Фамилия клиента], " +
+                "Product.Product as [Наименование продукта], " +
+                "Worker.SecName as [Фамилия работника], " +
+                "Department.DepartmentName as [Наименование отдела], " +
+                "DoneOrder.DoneOrderDate as [Дата] " +
                 "FROM Department INNER JOIN(Worker INNER JOIN (Product INNER JOIN (Client INNER JOIN DoneOrder " +
                 "ON Client.ClientID = DoneOrder.DoneOrderClient) " +
                 "ON Product.ProductID = DoneOrder.DoneOrderProduct) " +

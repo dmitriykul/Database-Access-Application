@@ -35,7 +35,6 @@ namespace computerFirm
             this.работникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.computerFirmDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.workerid = new System.Windows.Forms.TextBox();
             this.deleteWorkerBtn = new System.Windows.Forms.Button();
             this.addWorkerBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -45,6 +44,7 @@ namespace computerFirm
             this.списокУслугBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.updateTableStringBtn = new System.Windows.Forms.Button();
+            this.workersComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource)).BeginInit();
@@ -81,24 +81,16 @@ namespace computerFirm
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(24, 456);
+            this.label2.Location = new System.Drawing.Point(15, 457);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 16);
+            this.label2.Size = new System.Drawing.Size(147, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Код сотрудника";
-            // 
-            // workerid
-            // 
-            this.workerid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.workerid.Location = new System.Drawing.Point(21, 475);
-            this.workerid.Name = "workerid";
-            this.workerid.Size = new System.Drawing.Size(121, 20);
-            this.workerid.TabIndex = 8;
+            this.label2.Text = "Фамилия сотрудника";
             // 
             // deleteWorkerBtn
             // 
             this.deleteWorkerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteWorkerBtn.Location = new System.Drawing.Point(154, 462);
+            this.deleteWorkerBtn.Location = new System.Drawing.Point(189, 462);
             this.deleteWorkerBtn.Name = "deleteWorkerBtn";
             this.deleteWorkerBtn.Size = new System.Drawing.Size(123, 35);
             this.deleteWorkerBtn.TabIndex = 14;
@@ -162,7 +154,7 @@ namespace computerFirm
             // updateTableStringBtn
             // 
             this.updateTableStringBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateTableStringBtn.Location = new System.Drawing.Point(319, 462);
+            this.updateTableStringBtn.Location = new System.Drawing.Point(349, 462);
             this.updateTableStringBtn.Name = "updateTableStringBtn";
             this.updateTableStringBtn.Size = new System.Drawing.Size(185, 35);
             this.updateTableStringBtn.TabIndex = 18;
@@ -170,16 +162,26 @@ namespace computerFirm
             this.updateTableStringBtn.UseVisualStyleBackColor = true;
             this.updateTableStringBtn.Click += new System.EventHandler(this.updateTableStringBtn_Click);
             // 
+            // workersComboBox
+            // 
+            this.workersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.workersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workersComboBox.FormattingEnabled = true;
+            this.workersComboBox.Location = new System.Drawing.Point(15, 476);
+            this.workersComboBox.Name = "workersComboBox";
+            this.workersComboBox.Size = new System.Drawing.Size(147, 21);
+            this.workersComboBox.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 520);
+            this.Controls.Add(this.workersComboBox);
             this.Controls.Add(this.updateTableStringBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addWorkerBtn);
             this.Controls.Add(this.deleteWorkerBtn);
-            this.Controls.Add(this.workerid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -191,14 +193,13 @@ namespace computerFirm
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource1)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.computerFirmDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.работникиBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.поставщикиBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.продукцияBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.списокУслугBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.поставщикиBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.продукцияBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокУслугBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,7 +210,6 @@ namespace computerFirm
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource computerFirmDataSetBindingSource;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox workerid;
         private System.Windows.Forms.Button deleteWorkerBtn;
         private System.Windows.Forms.Button addWorkerBtn;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -221,6 +221,7 @@ namespace computerFirm
         private System.Windows.Forms.BindingSource работникиBindingSource;
         private System.Windows.Forms.BindingSource работникиBindingSource1;
         private System.Windows.Forms.Button updateTableStringBtn;
+        private System.Windows.Forms.ComboBox workersComboBox;
     }
 }
 

@@ -32,6 +32,7 @@ namespace computerFirm
             {
                 MessageBox.Show("Пожалуйста, заполните все поля", "Не все поля заполнены",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             string queryToAddNewProvider = $"INSERT INTO Provider (ProviderName, ProviderEmail) VALUES ('{providerName}', '{email}')";

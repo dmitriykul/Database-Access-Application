@@ -36,9 +36,9 @@ namespace computerFirm
             this.должностиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addPositionBtn = new System.Windows.Forms.Button();
             this.deletePositionBtn = new System.Windows.Forms.Button();
-            this.positionId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.positionsComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.должностиBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.должностиBindingSource)).BeginInit();
@@ -88,21 +88,13 @@ namespace computerFirm
             // deletePositionBtn
             // 
             this.deletePositionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deletePositionBtn.Location = new System.Drawing.Point(155, 394);
+            this.deletePositionBtn.Location = new System.Drawing.Point(175, 394);
             this.deletePositionBtn.Name = "deletePositionBtn";
             this.deletePositionBtn.Size = new System.Drawing.Size(146, 35);
             this.deletePositionBtn.TabIndex = 23;
             this.deletePositionBtn.Text = "Удалить должность";
             this.deletePositionBtn.UseVisualStyleBackColor = true;
             this.deletePositionBtn.Click += new System.EventHandler(this.deletePositionBtn_Click);
-            // 
-            // positionId
-            // 
-            this.positionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.positionId.Location = new System.Drawing.Point(12, 409);
-            this.positionId.Name = "positionId";
-            this.positionId.Size = new System.Drawing.Size(121, 20);
-            this.positionId.TabIndex = 22;
             // 
             // label2
             // 
@@ -111,9 +103,9 @@ namespace computerFirm
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(12, 390);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 16);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Код должности";
+            this.label2.Text = "Должность";
             // 
             // button1
             // 
@@ -126,15 +118,25 @@ namespace computerFirm
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // positionsComboBox
+            // 
+            this.positionsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.positionsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.positionsComboBox.FormattingEnabled = true;
+            this.positionsComboBox.Location = new System.Drawing.Point(12, 408);
+            this.positionsComboBox.Name = "positionsComboBox";
+            this.positionsComboBox.Size = new System.Drawing.Size(137, 21);
+            this.positionsComboBox.TabIndex = 26;
+            // 
             // PositionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 441);
+            this.Controls.Add(this.positionsComboBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.addPositionBtn);
             this.Controls.Add(this.deletePositionBtn);
-            this.Controls.Add(this.positionId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -158,10 +160,10 @@ namespace computerFirm
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addPositionBtn;
         private System.Windows.Forms.Button deletePositionBtn;
-        private System.Windows.Forms.TextBox positionId;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource должностиBindingSource;
         private System.Windows.Forms.BindingSource должностиBindingSource1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox positionsComboBox;
     }
 }

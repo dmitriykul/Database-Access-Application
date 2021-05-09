@@ -36,10 +36,10 @@ namespace computerFirm
             this.отделыBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.otdelIdTextbox = new System.Windows.Forms.TextBox();
             this.deleteOtdelBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.otdelNameTextbox = new System.Windows.Forms.TextBox();
+            this.departmentsComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.отделыBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.отделыBindingSource)).BeginInit();
@@ -94,23 +94,15 @@ namespace computerFirm
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(12, 443);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 21;
-            this.label2.Text = "ID Отдела";
-            // 
-            // otdelIdTextbox
-            // 
-            this.otdelIdTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.otdelIdTextbox.Location = new System.Drawing.Point(16, 470);
-            this.otdelIdTextbox.Name = "otdelIdTextbox";
-            this.otdelIdTextbox.Size = new System.Drawing.Size(100, 20);
-            this.otdelIdTextbox.TabIndex = 22;
+            this.label2.Text = "Отдел";
             // 
             // deleteOtdelBtn
             // 
             this.deleteOtdelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteOtdelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteOtdelBtn.Location = new System.Drawing.Point(143, 453);
+            this.deleteOtdelBtn.Location = new System.Drawing.Point(200, 453);
             this.deleteOtdelBtn.Name = "deleteOtdelBtn";
             this.deleteOtdelBtn.Size = new System.Drawing.Size(173, 37);
             this.deleteOtdelBtn.TabIndex = 23;
@@ -137,15 +129,25 @@ namespace computerFirm
             this.otdelNameTextbox.Size = new System.Drawing.Size(179, 20);
             this.otdelNameTextbox.TabIndex = 25;
             // 
+            // departmentsComboBox
+            // 
+            this.departmentsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.departmentsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departmentsComboBox.FormattingEnabled = true;
+            this.departmentsComboBox.Location = new System.Drawing.Point(16, 466);
+            this.departmentsComboBox.Name = "departmentsComboBox";
+            this.departmentsComboBox.Size = new System.Drawing.Size(156, 21);
+            this.departmentsComboBox.TabIndex = 26;
+            // 
             // OtdelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.departmentsComboBox);
             this.Controls.Add(this.otdelNameTextbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.deleteOtdelBtn);
-            this.Controls.Add(this.otdelIdTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -171,10 +173,10 @@ namespace computerFirm
         private System.Windows.Forms.BindingSource отделыBindingSource;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox otdelIdTextbox;
         private System.Windows.Forms.Button deleteOtdelBtn;
         private System.Windows.Forms.BindingSource отделыBindingSource1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox otdelNameTextbox;
+        private System.Windows.Forms.ComboBox departmentsComboBox;
     }
 }

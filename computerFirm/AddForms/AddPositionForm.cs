@@ -34,12 +34,12 @@ namespace computerFirm
             decimal posSalary = 0;
             try
             {
-                posSalary = Convert.ToDecimal(positionSalary.Text);
+                posSalary = Math.Abs(Convert.ToDecimal(positionSalary.Text));
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Неправильно введено поле Зарплата, повторите попытку!", "Ошибка в поле Зарплата",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

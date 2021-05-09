@@ -39,8 +39,8 @@ namespace computerFirm
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.serviceToDeleteTextBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.ServicesComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.списокУслугBindingSource1)).BeginInit();
@@ -98,7 +98,7 @@ namespace computerFirm
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(591, 336);
+            this.button1.Location = new System.Drawing.Point(591, 337);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 37);
             this.button1.TabIndex = 20;
@@ -110,7 +110,7 @@ namespace computerFirm
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(261, 336);
+            this.button2.Location = new System.Drawing.Point(261, 337);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 37);
             this.button2.TabIndex = 21;
@@ -129,19 +129,11 @@ namespace computerFirm
             this.label2.TabIndex = 22;
             this.label2.Text = "Вид услуги";
             // 
-            // serviceToDeleteTextBox
-            // 
-            this.serviceToDeleteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.serviceToDeleteTextBox.Location = new System.Drawing.Point(12, 353);
-            this.serviceToDeleteTextBox.Name = "serviceToDeleteTextBox";
-            this.serviceToDeleteTextBox.Size = new System.Drawing.Size(243, 20);
-            this.serviceToDeleteTextBox.TabIndex = 23;
-            // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(425, 336);
+            this.button3.Location = new System.Drawing.Point(424, 337);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 37);
             this.button3.TabIndex = 24;
@@ -149,13 +141,23 @@ namespace computerFirm
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ServicesComboBox
+            // 
+            this.ServicesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ServicesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ServicesComboBox.FormattingEnabled = true;
+            this.ServicesComboBox.Location = new System.Drawing.Point(12, 353);
+            this.ServicesComboBox.Name = "ServicesComboBox";
+            this.ServicesComboBox.Size = new System.Drawing.Size(243, 21);
+            this.ServicesComboBox.TabIndex = 25;
+            // 
             // ListOfOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 394);
+            this.Controls.Add(this.ServicesComboBox);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.serviceToDeleteTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -188,8 +190,8 @@ namespace computerFirm
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox serviceToDeleteTextBox;
         private System.Windows.Forms.BindingSource списокУслугBindingSource1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox ServicesComboBox;
     }
 }

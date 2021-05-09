@@ -64,6 +64,14 @@ namespace computerFirm
                 return;
             }
 
+            List<string> dateTest = date.Split('/').ToList();
+            if (dateTest.Count != 3 || Convert.ToInt32(dateTest[0]) <= 0 || Convert.ToInt32(dateTest[0]) > 31 ||
+                Convert.ToInt32(dateTest[1]) <= 0 || Convert.ToInt32(dateTest[1]) > 12)
+            {
+                MessageBox.Show("Неправильный формат даты", "Ошибка в поле Дата", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string queryToAddNewDoneOrder = $"INSERT INTO DoneOrder (DoneOrderClient, DoneOrderProduct, DoneOrderWorker, DoneOrderDepartment, DoneOrderDate) VALUES ({clientID}, {productID}, {workerID}, {otdelID}, #{date}#)";
             WorkerDb.MakeQueryForChangeTable(queryToAddNewDoneOrder, myConnection);
             MessageBox.Show("Данные о новом выполненном заказе добавлены");

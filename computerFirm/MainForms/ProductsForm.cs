@@ -15,6 +15,7 @@ namespace computerFirm
     {
         public static string connectString;
         private OleDbConnection myConnection;   // переменная для соединения
+        private Dictionary<int, string> products;
         string queryForFillTableByProducts = "SELECT Product.ProductID as [Код продукта], " +
             "Product.Product as [Продукт], " +
             "Provider.[ProviderName] as [Фирма], " +
@@ -42,7 +43,7 @@ namespace computerFirm
             if(role[0] == "seller" || role[0] == "master")
             {
                 label2.Hide();
-                productIdToDeleteTextBox.Hide();
+                productsComboBox.Hide();
                 button2.Hide();
 
                 button1.Hide();
@@ -61,12 +62,29 @@ namespace computerFirm
             if (!Convert.ToBoolean(role[2]))
             {
                 label2.Hide();
-                productIdToDeleteTextBox.Hide();
+                productsComboBox.Hide();
                 button2.Hide();
             }
             if (!Convert.ToBoolean(role[3]))
             {
                 button1.Hide();
+            }
+
+            products = WorkerDb.GetDataByIdAndField("ProductID", "Product", "Product", myConnection);
+            if (products.Count != 0)
+            {
+                productsComboBox.Enabled = true;
+                button2.Enabled = true;
+                changeInfoProductBtn.Enabled = true;
+                productsComboBox.DataSource = new BindingSource(products, null);
+                productsComboBox.DisplayMember = "Value";
+                productsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                productsComboBox.Enabled = false;
+                button2.Enabled = false;
+                changeInfoProductBtn.Enabled = false;
             }
         }
 
@@ -74,6 +92,7 @@ namespace computerFirm
         {
             WorkerDb.UpdateTable(myConnection, productsTableAdapter, productsTable, queryForFillTableByProducts, dataGridView2);
             dataGridView2.Columns[0].ReadOnly = true;
+            dataGridView2.Columns[0].Visible = false;
         }
 
         private void ProductsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -84,9 +103,11 @@ namespace computerFirm
         private void button2_Click(object sender, EventArgs e)
         {
             int productIdToDelete = -1;
+            string productName = "";
             try
             {
-                productIdToDelete = Convert.ToInt32(productIdToDeleteTextBox.Text);
+                productIdToDelete = ((KeyValuePair<int, string>)productsComboBox.SelectedItem).Key;
+                productName = ((KeyValuePair<int, string>)productsComboBox.SelectedItem).Value;
             }
             catch(Exception ex)
             {
@@ -95,13 +116,30 @@ namespace computerFirm
             }
             string query = $"DELETE FROM Product WHERE ProductID = {productIdToDelete}";    // запрос на удаление
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
-            MessageBox.Show($"Данные о продукте {productIdToDelete} удалены");
+            MessageBox.Show($"Данные о продукте {productName} удалены");
             WorkerDb.UpdateTable(myConnection, productsTableAdapter, productsTable, queryForFillTableByProducts, dataGridView2);
         }
 
         private void ProductsForm_Activated(object sender, EventArgs e)
         {
             WorkerDb.UpdateTable(myConnection, productsTableAdapter, productsTable, queryForFillTableByProducts, dataGridView2);
+
+            products = WorkerDb.GetDataByIdAndField("ProductID", "Product", "Product", myConnection);
+            if (products.Count != 0)
+            {
+                productsComboBox.Enabled = true;
+                button2.Enabled = true;
+                changeInfoProductBtn.Enabled = true;
+                productsComboBox.DataSource = new BindingSource(products, null);
+                productsComboBox.DisplayMember = "Value";
+                productsComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                productsComboBox.Enabled = false;
+                button2.Enabled = false;
+                changeInfoProductBtn.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -162,6 +200,7 @@ namespace computerFirm
                 $"SET Provider=DLookUp(\"ProviderID\", \"Provider\", \"[ProviderName]= '{productProviderName}'\") " +
                 $"WHERE Product.ProductID = {productId}";
             WorkerDb.MakeQueryForChangeTable(query, myConnection);
+            MessageBox.Show($"Данные о продукте {productName} изменены", "Данные изменены", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
