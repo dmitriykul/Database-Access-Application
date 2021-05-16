@@ -115,7 +115,7 @@ namespace computerFirm
             }
         }
 
-        public static Dictionary<int, string> GetDataByWorkerDepart(string id, string field, string table, string field2, int field3, OleDbConnection connection)
+        public static Dictionary<int, string> GetDataByTwoDifferentTables(string id, string field, string table, string field2, int field3, OleDbConnection connection)
         {
             Dictionary<int, string> results = new Dictionary<int, string> { };
             try

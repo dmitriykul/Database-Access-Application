@@ -24,15 +24,38 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
-            posts = WorkerDb.GetDataByIdAndField("PostID", "PostName", "Post", myConnection);
-            postComboBox.DataSource = new BindingSource(posts, null);
-            postComboBox.DisplayMember = "Value";
-            postComboBox.ValueMember = "Key";
 
             departs = WorkerDb.GetDataByIdAndField("DepartmentID", "DepartmentName", "Department", myConnection);
-            departmentComboBox.DataSource = new BindingSource(departs, null);
-            departmentComboBox.DisplayMember = "Value";
-            departmentComboBox.ValueMember = "Key";
+            if(departs.Count != 0)
+            {
+                departmentComboBox.Enabled = true;
+                addWorkerToDbBtn.Enabled = true;
+                departmentComboBox.DataSource = new BindingSource(departs, null);
+                departmentComboBox.DisplayMember = "Value";
+                departmentComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                departmentComboBox.Enabled = false;
+                addWorkerToDbBtn.Enabled = false;
+            }
+
+            posts = WorkerDb.GetDataByIdAndField("PostID", "PostName", "Post", myConnection);
+            // int departmentId = ((KeyValuePair<int, string>)departmentComboBox.SelectedItem).Key;
+            // posts = WorkerDb.GetDataByTwoDifferentTables("PostID", "PostName", "Post", "Department", departmentId, myConnection);
+            if (posts.Count() != 0)
+            {
+                postComboBox.Enabled = true;
+                addWorkerToDbBtn.Enabled = true;
+                postComboBox.DataSource = new BindingSource(posts, null);
+                postComboBox.DisplayMember = "Value";
+                postComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                postComboBox.Enabled = false;
+                addWorkerToDbBtn.Enabled = false;
+            }
         }
 
         private void addWorkerToDbBtn_Click(object sender, EventArgs e)

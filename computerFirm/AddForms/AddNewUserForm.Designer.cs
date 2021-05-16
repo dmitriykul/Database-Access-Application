@@ -95,6 +95,7 @@ namespace computerFirm.MainForms
             // 
             // roleNamesComboBox
             // 
+            this.roleNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleNamesComboBox.FormattingEnabled = true;
             this.roleNamesComboBox.Location = new System.Drawing.Point(111, 136);
             this.roleNamesComboBox.Name = "roleNamesComboBox";

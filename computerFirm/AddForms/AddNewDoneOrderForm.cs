@@ -25,31 +25,71 @@ namespace computerFirm
             connectString = connect;
             myConnection = new OleDbConnection(connectString);  // Объект, который будет отвечать за соединение с базой данных
             myConnection.Open();    // база данных открыта
+            this.FillComboBoxes();
+        }
+
+        private void FillComboBoxes()
+        {
             clients = WorkerDb.GetDataByIdAndField("ClientID", "ClientSecName", "Client", myConnection);
-            clientComboBox.DataSource = new BindingSource(clients, null);
-            clientComboBox.DisplayMember = "Value";
-            clientComboBox.ValueMember = "Key";
+            if(clients.Count() != 0)
+            {
+                clientComboBox.Enabled = true;
+                clientComboBox.DataSource = new BindingSource(clients, null);
+                clientComboBox.DisplayMember = "Value";
+                clientComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                clientComboBox.Enabled = false;
+            }
+
             products = WorkerDb.GetDataByIdAndField("ProductID", "Product", "Product", myConnection);
-            productComboBox.DataSource = new BindingSource(products, null);
-            productComboBox.DisplayMember = "Value";
-            productComboBox.ValueMember = "Key";
+            if(products.Count() != 0)
+            {
+                productComboBox.Enabled = true;
+                productComboBox.DataSource = new BindingSource(products, null);
+                productComboBox.DisplayMember = "Value";
+                productComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                productComboBox.Enabled = false;
+            }
             departments = WorkerDb.GetDataByIdAndField("DepartmentID", "DepartmentName", "Department", myConnection);
-            departmentComboBox.DataSource = new BindingSource(departments, null);
-            departmentComboBox.DisplayMember = "Value";
-            departmentComboBox.ValueMember = "Key";
+            if(departments.Count() != 0)
+            {
+                departmentComboBox.Enabled = true;
+                departmentComboBox.DataSource = new BindingSource(departments, null);
+                departmentComboBox.DisplayMember = "Value";
+                departmentComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                departmentComboBox.Enabled = false;
+            }
 
             int otdelServiceId = ((KeyValuePair<int, string>)departmentComboBox.SelectedItem).Key;
 
-            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
-            workerComboBox.DataSource = new BindingSource(workers, null);
-            workerComboBox.DisplayMember = "Value";
-            workerComboBox.ValueMember = "Key";
+            workers = WorkerDb.GetDataByTwoDifferentTables("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
+            if(workers.Count() != 0 && otdelServiceId != 0)
+            {
+                workerComboBox.Enabled = true;
+                workerComboBox.DataSource = new BindingSource(workers, null);
+                workerComboBox.DisplayMember = "Value";
+                workerComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                workerComboBox.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int clientID = -1, productID = -1, workerID = -1, otdelID = -1;
-            string date = dateOfOrder.Text;
+            //string date = dateOfOrder.Text;
+            string date = dateOrder.Value.ToString("dd/MM/yyyy");
+            date = date.Replace(".", "/");
             try
             {
                 clientID = ((KeyValuePair<int, string>)clientComboBox.SelectedItem).Key;
@@ -87,10 +127,18 @@ namespace computerFirm
         {
             int otdelServiceId = ((KeyValuePair<int, string>)departmentComboBox.SelectedItem).Key;
 
-            workers = WorkerDb.GetDataByWorkerDepart("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
-            workerComboBox.DataSource = new BindingSource(workers, null);
-            workerComboBox.DisplayMember = "Value";
-            workerComboBox.ValueMember = "Key";
+            workers = WorkerDb.GetDataByTwoDifferentTables("WorkerID", "SecName", "Worker", "Department", otdelServiceId, myConnection);
+            if(workers.Count() != 0)
+            {
+                workerComboBox.Enabled = true;
+                workerComboBox.DataSource = new BindingSource(workers, null);
+                workerComboBox.DisplayMember = "Value";
+                workerComboBox.ValueMember = "Key";
+            }
+            else
+            {
+                workerComboBox.Enabled = false;
+            }
         }
     }
 }

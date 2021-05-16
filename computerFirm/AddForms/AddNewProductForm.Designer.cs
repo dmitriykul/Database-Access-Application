@@ -107,6 +107,7 @@ namespace computerFirm
             // 
             // providerComboBox
             // 
+            this.providerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.providerComboBox.FormattingEnabled = true;
             this.providerComboBox.Location = new System.Drawing.Point(144, 85);
             this.providerComboBox.Name = "providerComboBox";

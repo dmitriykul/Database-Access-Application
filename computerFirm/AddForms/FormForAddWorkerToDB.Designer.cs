@@ -161,6 +161,7 @@ namespace computerFirm
             // 
             // postComboBox
             // 
+            this.postComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.postComboBox.FormattingEnabled = true;
             this.postComboBox.Location = new System.Drawing.Point(232, 99);
             this.postComboBox.Name = "postComboBox";
@@ -183,6 +184,7 @@ namespace computerFirm
             // 
             // departmentComboBox
             // 
+            this.departmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.departmentComboBox.FormattingEnabled = true;
             this.departmentComboBox.Location = new System.Drawing.Point(232, 126);
             this.departmentComboBox.Name = "departmentComboBox";

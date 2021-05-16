@@ -167,9 +167,9 @@ namespace computerFirm
             this.workersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.workersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.workersComboBox.FormattingEnabled = true;
-            this.workersComboBox.Location = new System.Drawing.Point(15, 476);
+            this.workersComboBox.Location = new System.Drawing.Point(18, 476);
             this.workersComboBox.Name = "workersComboBox";
-            this.workersComboBox.Size = new System.Drawing.Size(147, 21);
+            this.workersComboBox.Size = new System.Drawing.Size(144, 21);
             this.workersComboBox.TabIndex = 19;
             // 
             // Form1

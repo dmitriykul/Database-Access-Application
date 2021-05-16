@@ -95,6 +95,7 @@ namespace computerFirm
             // 
             // departmentComboBox
             // 
+            this.departmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.departmentComboBox.FormattingEnabled = true;
             this.departmentComboBox.Location = new System.Drawing.Point(111, 106);
             this.departmentComboBox.Name = "departmentComboBox";

@@ -34,12 +34,12 @@ namespace computerFirm
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateOfOrder = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.productComboBox = new System.Windows.Forms.ComboBox();
             this.workerComboBox = new System.Windows.Forms.ComboBox();
             this.departmentComboBox = new System.Windows.Forms.ComboBox();
+            this.dateOrder = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -92,13 +92,6 @@ namespace computerFirm
             this.label5.TabIndex = 5;
             this.label5.Text = "Дата (дд/мм./гггг)";
             // 
-            // dateOfOrder
-            // 
-            this.dateOfOrder.Location = new System.Drawing.Point(176, 239);
-            this.dateOfOrder.Name = "dateOfOrder";
-            this.dateOfOrder.Size = new System.Drawing.Size(142, 20);
-            this.dateOfOrder.TabIndex = 9;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -147,17 +140,24 @@ namespace computerFirm
             this.departmentComboBox.TabIndex = 14;
             this.departmentComboBox.SelectedValueChanged += new System.EventHandler(this.departmentComboBox_SelectedValueChanged);
             // 
+            // dateOrder
+            // 
+            this.dateOrder.Location = new System.Drawing.Point(176, 239);
+            this.dateOrder.Name = "dateOrder";
+            this.dateOrder.Size = new System.Drawing.Size(142, 20);
+            this.dateOrder.TabIndex = 15;
+            // 
             // AddNewDoneOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 288);
+            this.Controls.Add(this.dateOrder);
             this.Controls.Add(this.departmentComboBox);
             this.Controls.Add(this.workerComboBox);
             this.Controls.Add(this.productComboBox);
             this.Controls.Add(this.clientComboBox);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateOfOrder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -179,11 +179,11 @@ namespace computerFirm
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox dateOfOrder;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox clientComboBox;
         private System.Windows.Forms.ComboBox productComboBox;
         private System.Windows.Forms.ComboBox workerComboBox;
         private System.Windows.Forms.ComboBox departmentComboBox;
+        private System.Windows.Forms.DateTimePicker dateOrder;
     }
 }

@@ -37,11 +37,11 @@ namespace computerFirm
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.serviceCost = new System.Windows.Forms.TextBox();
-            this.serviceDate = new System.Windows.Forms.TextBox();
             this.serviceNameComboBox = new System.Windows.Forms.ComboBox();
             this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.departComboBox = new System.Windows.Forms.ComboBox();
             this.workerComboBox = new System.Windows.Forms.ComboBox();
+            this.dateService = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -122,13 +122,6 @@ namespace computerFirm
             this.serviceCost.Size = new System.Drawing.Size(157, 20);
             this.serviceCost.TabIndex = 8;
             // 
-            // serviceDate
-            // 
-            this.serviceDate.Location = new System.Drawing.Point(178, 163);
-            this.serviceDate.Name = "serviceDate";
-            this.serviceDate.Size = new System.Drawing.Size(157, 20);
-            this.serviceDate.TabIndex = 11;
-            // 
             // serviceNameComboBox
             // 
             this.serviceNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -167,16 +160,23 @@ namespace computerFirm
             this.workerComboBox.Size = new System.Drawing.Size(157, 21);
             this.workerComboBox.TabIndex = 16;
             // 
+            // dateService
+            // 
+            this.dateService.Location = new System.Drawing.Point(178, 163);
+            this.dateService.Name = "dateService";
+            this.dateService.Size = new System.Drawing.Size(157, 20);
+            this.dateService.TabIndex = 17;
+            // 
             // AddDoneService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 248);
+            this.Controls.Add(this.dateService);
             this.Controls.Add(this.workerComboBox);
             this.Controls.Add(this.departComboBox);
             this.Controls.Add(this.clientComboBox);
             this.Controls.Add(this.serviceNameComboBox);
-            this.Controls.Add(this.serviceDate);
             this.Controls.Add(this.serviceCost);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -204,10 +204,10 @@ namespace computerFirm
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox serviceCost;
-        private System.Windows.Forms.TextBox serviceDate;
         private System.Windows.Forms.ComboBox serviceNameComboBox;
         private System.Windows.Forms.ComboBox clientComboBox;
         private System.Windows.Forms.ComboBox departComboBox;
         private System.Windows.Forms.ComboBox workerComboBox;
+        private System.Windows.Forms.DateTimePicker dateService;
     }
 }
